@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DesafioCadastro.ViewModel.ClienteViewModel>
+
+@{
+    ViewData["Title"] = "Gerenciar Clientes";
+}
+
+<h1>Gerenciar Clientes</h1>
+
+<p>
+    <a asp-action="Create">Novo Cliente</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CNPJ)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RazaoSocial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Porte)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Municipio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CNPJ)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RazaoSocial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Porte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Municipio)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ClienteId">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.ClienteId">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
